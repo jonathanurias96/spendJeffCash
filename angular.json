@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "spendJeffBezosCash"
+    }
+  },
+  "defaultProject": "spendJeffBezosCash",
+  "cli": {
+    "analytics": "c587e5a4-e27b-4806-b259-f60cf4f37d77"
+  }
 }
