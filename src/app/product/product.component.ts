@@ -9,10 +9,8 @@ export class ProductComponent implements OnInit {
   @Input('products') products;
   constructor() { }
   buy(): void{
-    alert("Buy!")
   }
   sell(): void {
-    alert("Sell!")
   }
   ngOnInit(): void {
   }
