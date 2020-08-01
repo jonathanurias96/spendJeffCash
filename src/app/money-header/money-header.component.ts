@@ -7,11 +7,9 @@ import { BillionaireService } from '../billionaire.service';
   styleUrls: ['./money-header.component.css']
 })
 export class MoneyHeaderComponent implements OnInit {
-  money = this.billionaire.getMoney();
   constructor(
-    private billionaire: BillionaireService
+    public billionaire: BillionaireService
   ) { }
   ngOnInit(): void {
-    this.money = this.billionaire.getMoney();
   }
 }

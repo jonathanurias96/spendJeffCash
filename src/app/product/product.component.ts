@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
+
 import { BillionaireService } from '../billionaire.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product',
@@ -8,16 +10,18 @@ import { BillionaireService } from '../billionaire.service';
 })
 export class ProductComponent implements OnInit {
   products;
+
   constructor(
-    private billionaire: BillionaireService
+    private billionaire: BillionaireService,
+    public cart: CartService
   ) { }
   buyProduct(product) {
     this.billionaire.spendMoney(product);
-    console.log(this.billionaire.money)
+    this.cart.addToCart(product);
   }
   sellProduct(product) {
     this.billionaire.getMoneyBack(product);
-    console.log(this.billionaire.money)
+    this.cart.removeFromCart(product);
   }
   ngOnInit(): void {
     this.products = this.billionaire.products;
