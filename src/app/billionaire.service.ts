@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { orderBy } from 'lodash';
+
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -117,14 +120,29 @@ export class BillionaireService {
       price: 7500000,
     }
   ]
+
+  constructor(
+    private cart: CartService
+  ) { }
+
   getMoney() {
     return this.money
   }
   spendMoney(product) {
-    this.money -= product.price;
+    if(this.money >= product.price) {
+      this.money -= product.price;
+    } else {
+      alert("You run out of dough!")
+    }
   }
   getMoneyBack(product) {
-    this.money += product.price
+    if(this.cart.currentCart[product.name]) {
+      this.money += product.price
+    } else {
+      alert("You kidding me?")
+    }
   }
-  constructor() { }
+  getSortedProducts() {
+    return orderBy(this.products, ['price'], ["asc"])
+  }
 }

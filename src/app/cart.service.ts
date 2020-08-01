@@ -11,6 +11,7 @@ export class CartService {
     } else {
       this.currentCart[product.name] = 1
     }
+    console.log(this.currentCart)
   }
   removeFromCart(product) {
     if(this.currentCart[product.name] === 1){
@@ -18,6 +19,7 @@ export class CartService {
     } else if (this.currentCart[product.name]) {
       this.currentCart[product.name]--
     }
+    console.log(this.currentCart)
   }
   getProductAmount(product) {
     if(this.currentCart[product.name]) {

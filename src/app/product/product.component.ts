@@ -25,6 +25,6 @@ export class ProductComponent implements OnInit {
     this.cart.removeFromCart(product);
   }
   ngOnInit(): void {
-    this.products = this.billionaire.products;
+    this.products = this.billionaire.getSortedProducts();
   }
 }
