@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BillionaireService } from '../billionaire.service';
 
 @Component({
   selector: 'app-money-header',
@@ -6,9 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./money-header.component.css']
 })
 export class MoneyHeaderComponent implements OnInit {
-  @Input('money') money;
-  constructor() { }
+  money = this.billionaire.getMoney();
+  constructor(
+    private billionaire: BillionaireService
+  ) { }
   ngOnInit(): void {
+    this.money = this.billionaire.getMoney();
   }
-
 }

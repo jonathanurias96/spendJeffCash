@@ -2,7 +2,7 @@
     <img class="productPicture" [src]=product.photo/>
     <h3> {{ product.name }} </h3>
     <p class="productPrice">{{ product.price | currency: 'USD' }}</p>
-    <button type="button" (click)="buy()" class="buttons btn btn-success">Buy</button>
+    <button type="button" (click)="buyProduct(product)" class="buttons btn btn-success">Buy</button>
     <div class="productInput">0</div>
-    <button type="button" (click)="sell()" class="buttons btn btn-danger">Sell</button>
+    <button type="button" (click)="sellProduct(product)" class="buttons btn btn-danger">Sell</button>
 </div>

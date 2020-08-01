@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { BillionaireService } from '../billionaire.service';
 
 @Component({
   selector: 'app-product',
@@ -6,13 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input('products') products;
-  constructor() { }
-  buy(): void{
+  products;
+  constructor(
+    private billionaire: BillionaireService
+  ) { }
+  buyProduct(product) {
+    this.billionaire.spendMoney(product);
+    console.log(this.billionaire.money)
   }
-  sell(): void {
+  sellProduct(product) {
+    this.billionaire.getMoneyBack(product);
+    console.log(this.billionaire.money)
   }
   ngOnInit(): void {
+    this.products = this.billionaire.products;
   }
-
 }
