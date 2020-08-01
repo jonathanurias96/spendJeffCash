@@ -7,13 +7,7 @@ import { BillionaireService } from '../billionaire.service';
   styleUrls: ['./game-body.component.css']
 })
 export class GameBodyComponent implements OnInit {
-  constructor(
-    private billionaire: BillionaireService
-  ) { }
-  money: number;
-  products: object[];
+  constructor() { }
   ngOnInit(): void {
-    this.money = this.billionaire.money;
-    this.products = this.billionaire.products;
   }
 }

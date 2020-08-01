@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
     private billionaire: BillionaireService,
     public cart: CartService
   ) { }
+  
   buyProduct(product) {
     this.billionaire.spendMoney(product);
     this.cart.addToCart(product);

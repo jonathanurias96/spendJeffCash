@@ -19,11 +19,11 @@ export class CartService {
       this.currentCart[product.name]--
     }
   }
+  getProductAmount(product) {
+    if(this.currentCart[product.name]) {
+      return this.currentCart[product.name];
+    } 
+    return 0;
+  }
   constructor() { }
-}
-
-interface Products {
-  photo: string;
-  name: string;
-  price: number;
 }
